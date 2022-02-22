@@ -1,5 +1,5 @@
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-instance"
+  name         = "debian-unifi"
   machine_type = "e2-micro"
 
   boot_disk {
@@ -8,7 +8,6 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
   metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync; pip install flask"
-
   metadata = {
     ssh-keys = format(
       "%s:%s",
@@ -16,7 +15,6 @@ resource "google_compute_instance" "vm_instance" {
       file(var.ssh_key_path)
     )
   }
-
   network_interface {
     # A default network is created for all GCP projects
     network = "default"
