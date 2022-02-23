@@ -1,7 +1,5 @@
 provider "google" {
-  credentials = file("credentials.json")
-  project = "unifi-236602"
-  region  = "us-central1"
-  zone    = "us-central1-c"
+  project = var.project_name
+  region = var.region_name
+  zone = var.zone_name
 }
-
