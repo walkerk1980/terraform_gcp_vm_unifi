@@ -9,7 +9,7 @@ variable "instance_name" {
   type = string
 }
 variable "project_name" {
-  default = "unifi-236602"
+  default = "unifi"
   description = "project to deploy to"
   type = string
 }
@@ -19,7 +19,7 @@ variable "ssh_username" {
   type = string
 }
 variable "firewall_allow_ip_ranges" {
-  default = ["76.185.13.10/32"]
+  default = []
   type = list(string)
 }
 variable "region_name" {
