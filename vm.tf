@@ -22,11 +22,7 @@ resource google_compute_instance vm_instance {
   }
   machine_type = var.instance_machine_type
   metadata = {
-    ssh-keys = format(
-      "%s:%s",
-      var.ssh_username,
-      file(var.ssh_key_path)
-    )
+    ssh-keys = "${var.ssh_username}:${local.ssh_key}"
   }
   metadata_startup_script = var.startup_script
   network_interface {
